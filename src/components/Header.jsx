@@ -1,7 +1,7 @@
 export default function Header() {
     return (
-        <div className="headerClass">
-            <header>
+        <div>
+            <header  className="center-flex">
                 <h1>Lucas Gilles</h1>
             </header>
         </div>
