@@ -1,6 +1,8 @@
+import React from "react";
+
 export default function Portfolio() {
     return (
-        <div>
+        <div id="portfolio">
             <div className="portfolio-right">
                 <a>First portfolio entry</a>
             </div>

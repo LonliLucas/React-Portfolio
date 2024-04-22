@@ -1,35 +1,23 @@
-import { useState } from "react";
-// import logo from "logo"
-
-const navItems = ["h", "p"];
+import React from "react";
+import {SidebarData} from "./SidebarData";
 
 export default function Sidebar() {
-    const [isOpen, setIsOpen] = useState(false);
+    const scrollToSection = (sectionId) => {
+        const section = document.getElementById(sectionId);
+        if (section) {
+            section.scrollIntoView({ behavior: 'smooth' })
+        }
+    };
+
     return (
-        <aside className={`sidebar ${isOpen ? "open" : ""}`}>
-            <div className="inner">
-                <header>
-                    <button
-                        type="button"
-                        className="sidebar-burger"
-                        onClick={() => setIsOpen(!isOpen)}
-                    >
-                        <span className="icon">
-                            {isOpen ? "close" : "menu"}
-                        </span>
-                    </button>
-                    {/* <img src={logo} /> */}
-                    <p>hey</p>
-                </header>
-                <nav>
-                    {navItems.map((item) => (
-                        <button key ={item} type="button">
-                            <span className="icon">{item}</span>
-                            <p>{item}</p>
-                        </button>
-                    ))}
-                </nav>
-            </div>
-        </aside>
+        <div className="sidebar">
+            <ul>
+                {SidebarData.map((val, key) => (
+                    <li key={key} onClick={() => scrollToSection(val.section)}> 
+                        <div>{val.title}</div>
+                    </li>
+                ))}
+            </ul>
+        </div>
     )
 }
